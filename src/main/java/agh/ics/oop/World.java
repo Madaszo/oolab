@@ -2,19 +2,32 @@ package agh.ics.oop;
 
 public class World {
     public static void main(String[] args){
-        System.out.println("system wystartował");
-        String string[] = {"abc","abc"};
-        run(string);
-        System.out.println("system zakończył działanie");
+        Direction[] directions = change(args);
+        run(directions);
     }
-    public static void run(String[] args){
-        System.out.println("zwierzak idzie do przodu");
-        for(int i = 0; i < args.length; i++){
-            System.out.print(args[i]);
-            if(i<args.length -1){
-                System.out.print(", ");
+    public static  Direction[] change(String[] string){
+        Direction[] directions = new Direction[string.length];
+        for (int i = 0; i < string.length; i++) {
+            switch (string[i]) {
+                case "f" -> directions[i] = Direction.FORWARD;
+                case "b" -> directions[i] = Direction.BACKWARD;
+                case "l" -> directions[i] = Direction.LEFT;
+                case "r" -> directions[i] = Direction.RIGHT;
             }
         }
-        System.out.println();
+        return directions;
+    }
+    public static void run(Direction[] directions) {
+        System.out.println("Start");
+        for (Direction direction : directions) {
+            String message = switch (direction) {
+                case FORWARD -> "Zwierzak idzie do przodu";
+                case BACKWARD -> "Zwierzak idzie do tyłu";
+                case RIGHT -> "Zwierzak skręca w prawo";
+                case LEFT -> "Zwierzak skręca w lewo";
+            };
+            System.out.println(message);
+        }
+        System.out.println("Start");
     }
 }

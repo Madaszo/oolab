@@ -1,8 +1,8 @@
 package agh.ics.oop;
 
 public class Vector2d {
-    public int x;
-    public int y;
+    private final int x;
+    private final int y;
     public Vector2d(int x, int y){
         this.x = x;
         this.y = y;

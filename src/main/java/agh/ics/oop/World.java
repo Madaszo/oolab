@@ -2,6 +2,10 @@ package agh.ics.oop;
 
 public class World {
     public static void main(String[] args){
+        Animal malpa = new Animal();
+        System.out.println(malpa);
+        MoveDirection[] moveDirections = OptionsParser.parse(args);
+        System.out.println(malpa);
         Vector2d position1 = new Vector2d(1,2);
         System.out.println(position1);
         Vector2d position2 = new Vector2d(-2,1);

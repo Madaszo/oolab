@@ -32,6 +32,8 @@ public class Vector2d {
         return new Vector2d(-1*this.x,-1*this.y);
     }
     public boolean equals(Object other) {
+        if (this == other) return true;
+        if (other == null || getClass() != other.getClass()) return false;
         Vector2d v2 = (Vector2d) other;
         return (this.x == v2.x) && (this.y == v2.y);
     }

@@ -2,8 +2,18 @@ package agh.ics.oop;
 
 public class World {
     public static void main(String[] args){
+        Vector2d position1 = new Vector2d(1,2);
+        System.out.println(position1);
+        Vector2d position2 = new Vector2d(-2,1);
+        System.out.println(position2);
+        System.out.println(position1.add(position2));
         Direction[] directions = change(args);
         run(directions);
+        MapDirection m = MapDirection.EAST;
+        System.out.println(m);
+        MapDirection m2 = m.next();
+        System.out.println(m2);
+        System.out.println(m2.toUnitVector());
     }
     public static  Direction[] change(String[] string){
         Direction[] directions = new Direction[string.length];
@@ -13,6 +23,7 @@ public class World {
                 case "b" -> directions[i] = Direction.BACKWARD;
                 case "l" -> directions[i] = Direction.LEFT;
                 case "r" -> directions[i] = Direction.RIGHT;
+                default -> directions[i] = Direction.IGNORE;
             }
         }
         return directions;
@@ -20,13 +31,13 @@ public class World {
     public static void run(Direction[] directions) {
         System.out.println("Start");
         for (Direction direction : directions) {
-            String message = switch (direction) {
-                case FORWARD -> "Zwierzak idzie do przodu";
-                case BACKWARD -> "Zwierzak idzie do tyłu";
-                case RIGHT -> "Zwierzak skręca w prawo";
-                case LEFT -> "Zwierzak skręca w lewo";
-            };
-            System.out.println(message);
+            switch (direction) {
+                case FORWARD -> System.out.println("Zwierzak idzie do przodu");
+                case BACKWARD -> System.out.println("Zwierzak idzie do tylu");
+                case RIGHT -> System.out.println("Zwierzak skreca w prawo");
+                case LEFT -> System.out.println("Zwierzak skreca w lewo");
+                default -> System.out.print("");
+            }
         }
         System.out.println("Start");
     }

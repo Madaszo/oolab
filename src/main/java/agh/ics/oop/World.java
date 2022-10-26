@@ -4,20 +4,24 @@ public class World {
     public static void main(String[] args){
         Animal malpa = new Animal();
         System.out.println(malpa);
-        MoveDirection[] moveDirections = OptionsParser.parse(args);
+        MoveDirection[] moveDirections = OptionsParser.parse(new String[]{"f", "f"});
         System.out.println(malpa);
-        Vector2d position1 = new Vector2d(1,2);
-        System.out.println(position1);
-        Vector2d position2 = new Vector2d(-2,1);
-        System.out.println(position2);
-        System.out.println(position1.add(position2));
-        Direction[] directions = change(args);
-        run(directions);
-        MapDirection m = MapDirection.EAST;
-        System.out.println(m);
-        MapDirection m2 = m.next();
-        System.out.println(m2);
-        System.out.println(m2.toUnitVector());
+        for(MoveDirection moveDirection: moveDirections){
+            malpa.move(moveDirection);
+        }
+        System.out.println(malpa);
+//        Vector2d position1 = new Vector2d(1,2);
+//        System.out.println(position1);
+//        Vector2d position2 = new Vector2d(-2,1);
+//        System.out.println(position2);
+//        System.out.println(position1.add(position2));
+//        Direction[] directions = change(args);
+//        run(directions);
+//        MapDirection m = MapDirection.EAST;
+//        System.out.println(m);
+//        MapDirection m2 = m.next();
+//        System.out.println(m2);
+//        System.out.println(m2.toUnitVector());
     }
     public static  Direction[] change(String[] string){
         Direction[] directions = new Direction[string.length];

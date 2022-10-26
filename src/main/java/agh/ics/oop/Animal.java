@@ -14,6 +14,12 @@ public class Animal {
     public String toString() {
         return "("+this.position + "," + this.direction + ")";
     }
+    public Vector2d[] getPosition(){
+        return new Vector2d[]{this.position};
+    }
+    public MapDirection getDirection(){
+        return this.direction;
+    }
     public boolean isAt(Vector2d position){
         return Objects.equals(this.position, position);
     }
@@ -37,6 +43,11 @@ public class Animal {
             }
             case IGNORE -> {
             }
+        }
+    }
+    public void massMove(MoveDirection[] moveDirections){
+        for(MoveDirection moveDirection: moveDirections){
+            this.move(moveDirection);
         }
     }
 }

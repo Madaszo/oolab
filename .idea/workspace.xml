@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bd5d4fe-a637-43d4-b9e3-8461f6a7996d" name="Changes" comment="Created parser">
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
+    <list default="true" id="1bd5d4fe-a637-43d4-b9e3-8461f6a7996d" name="Changes" comment="Lab4">
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IEngine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IWorldMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/MapVisualizer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/RectangularMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/RunEngineTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/AnimalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/AnimalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/MapDirection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/MapDirection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Vector2d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Vector2d.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -24,15 +32,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Lab3" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,26 +48,16 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectId" id="2G1bdrSpm63a5oH46s3o6ZKVk1Z" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.AnimalTest.testOutOfBounds">
-    <configuration name="World" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.World" />
-      <module name="oolab.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="agh.ics.oop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.RunEngineTest">
     <configuration name="AnimalTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oolab.main" />
       <extension name="coverage">
@@ -75,7 +73,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AnimalTest.testOutOfBounds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AnimalTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oolab.main" />
       <extension name="coverage">
         <pattern>
@@ -85,13 +83,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="agh.ics.oop" />
       <option name="MAIN_CLASS_NAME" value="agh.ics.oop.AnimalTest" />
-      <option name="METHOD_NAME" value="testOutOfBounds" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Vector2dTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RunEngineTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oolab.main" />
       <extension name="coverage">
         <pattern>
@@ -100,13 +98,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="agh.ics.oop" />
-      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.Vector2dTest" />
+      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.RunEngineTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Vector2dTest.testOpposite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RunEngineTest.testOnTop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="oolab.main" />
       <extension name="coverage">
         <pattern>
@@ -115,8 +113,24 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="agh.ics.oop" />
-      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.Vector2dTest" />
-      <option name="METHOD_NAME" value="testOpposite" />
+      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.RunEngineTest" />
+      <option name="METHOD_NAME" value="testOnTop" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RunEngineTest.testOutOfBounds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oolab.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="agh.ics.oop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="agh.ics.oop" />
+      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.RunEngineTest" />
+      <option name="METHOD_NAME" value="testOutOfBounds" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -124,11 +138,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AnimalTest.testOutOfBounds" />
+        <item itemvalue="JUnit.RunEngineTest" />
+        <item itemvalue="JUnit.RunEngineTest.testOnTop" />
+        <item itemvalue="JUnit.RunEngineTest.testOutOfBounds" />
+        <item itemvalue="JUnit.AnimalTest.test" />
         <item itemvalue="JUnit.AnimalTest" />
-        <item itemvalue="JUnit.Vector2dTest" />
-        <item itemvalue="Application.World" />
-        <item itemvalue="JUnit.Vector2dTest.testOpposite" />
       </list>
     </recent_temporary>
   </component>
@@ -174,6 +188,7 @@
     <MESSAGE value="bugfix" />
     <MESSAGE value="created Animal" />
     <MESSAGE value="Created parser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created parser" />
+    <MESSAGE value="Lab4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab4" />
   </component>
 </project>

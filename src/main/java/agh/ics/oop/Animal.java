@@ -4,12 +4,16 @@ import java.util.Objects;
 
 public class Animal {
     private final IWorldMap map;
-    private MapDirection direction = MapDirection.NORTH;
+    private MapDirection direction;
     private Vector2d position;
     public Animal(IWorldMap map, Vector2d initialPosition){
         this.map = map;
         this.position = initialPosition;
+        this.direction = MapDirection.NORTH;
         this.map.place(this);
+    }
+    public Animal(IWorldMap map){
+        this(map,new Vector2d(2,2));
     }
 
     public String toString() {

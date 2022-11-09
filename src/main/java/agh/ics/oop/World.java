@@ -2,27 +2,14 @@ package agh.ics.oop;
 
 public class World {
     public static void main(String[] args){
-        MoveDirection[] directions = OptionsParser.parse(args);
-        IWorldMap map = new RectangularMap(10, 5);
-        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
-        IEngine engine = new SimulationEngine(directions, map, positions);
-        engine.run();
-
-
-//        IWorldMap map =new RectangularMap(4,4);
-//        Animal malpa = new Animal(map,new Vector2d(2,2));
-//        System.out.println(malpa);
-//        MoveDirection[] moveDirections = OptionsParser.parse(args);
-//        System.out.println(malpa);
-//        for(MoveDirection moveDirection: moveDirections){
-//            malpa.move(moveDirection);
-//        }
-//        Animal malpa2 = new Animal(map,new Vector2d(2,2));
-//        for(MoveDirection moveDirection: moveDirections){
-//            malpa2.move(moveDirection);
-//        }
-        System.out.println(map);
-
+        Animal malpa = new Animal();
+        System.out.println(malpa);
+        MoveDirection[] moveDirections = OptionsParser.parse(new String[]{"f", "f"});
+        System.out.println(malpa);
+        for(MoveDirection moveDirection: moveDirections){
+            malpa.move(moveDirection);
+        }
+        System.out.println(malpa);
 //        Vector2d position1 = new Vector2d(1,2);
 //        System.out.println(position1);
 //        Vector2d position2 = new Vector2d(-2,1);

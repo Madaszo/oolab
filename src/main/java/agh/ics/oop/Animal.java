@@ -2,7 +2,7 @@ package agh.ics.oop;
 
 import java.util.Objects;
 
-public class Animal {
+public class Animal implements IMapElement{
     private final IWorldMap map;
     private MapDirection direction = MapDirection.NORTH;
     private Vector2d position;

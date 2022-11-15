@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class AnimalTest {
     IWorldMap map = new RectangularMap(4, 4);
-    Animal malpa = new Animal(map,new Vector2d(2,2));
+    Animal malpa = new Animal(map);
     @BeforeEach
     void setUp(){
         map.place(malpa);

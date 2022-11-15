@@ -11,6 +11,9 @@ public class Animal {
         this.position = initialPosition;
         this.map.place(this);
     }
+    public Animal(IWorldMap map){
+        this(map,new Vector2d(2,2));
+    }
 
     public String toString() {
         switch (this.direction){

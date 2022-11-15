@@ -3,19 +3,35 @@ package agh.ics.oop;
 import java.util.Objects;
 
 public class Animal {
-    private final Vector2d[] map = new Vector2d[2];
+    private final IWorldMap map;
     private MapDirection direction = MapDirection.NORTH;
-    private Vector2d position = new Vector2d(2,2);
-    public Animal(){
-        this.map[0] = new Vector2d(0,0);
-        this.map[1] = new Vector2d(4,4);
+    private Vector2d position;
+    public Animal(IWorldMap map, Vector2d initialPosition){
+        this.map = map;
+        this.position = initialPosition;
+        this.map.place(this);
     }
 
     public String toString() {
-        return "("+this.position + "," + this.direction + ")";
+        switch (this.direction){
+            case NORTH -> {
+                return "^";
+            }
+            case SOUTH -> {
+                return "v";
+            }
+            case WEST -> {
+                return "<";
+            }
+            case EAST -> {
+                return ">";
+            }
+            default -> throw new IllegalStateException("Unexpected value: " + this.direction);
+        }
+
     }
-    public Vector2d[] getPosition(){
-        return new Vector2d[]{this.position};
+    public Vector2d getPosition(){
+        return this.position;
     }
     public MapDirection getDirection(){
         return this.direction;
@@ -29,16 +45,14 @@ public class Animal {
             case RIGHT -> this.direction = this.direction.next();
             case FORWARD -> {
                 Vector2d tmp = this.direction.toUnitVector().add(this.position);
-                if((Objects.equals(this.map[0], this.map[0].lowerLeft(tmp)))
-                    && (Objects.equals(this.map[1], this.map[1].upperRight(tmp)))) {
-                        this.position = this.position.add(this.direction.toUnitVector());
-                    }
+                if(this.map.canMoveTo(tmp)){
+                    this.position = this.position.add(this.direction.toUnitVector());
+                }
             }
             case BACKWARD -> {
                 Vector2d tmp = this.direction.toUnitVector().opposite().add(this.position);
-                if((Objects.equals(this.map[0], this.map[0].lowerLeft(tmp)))
-                    && (Objects.equals(this.map[1], this.map[1].upperRight(tmp)))) {
-                        this.position = this.position.add(this.direction.toUnitVector().opposite());
+                if(this.map.canMoveTo(tmp)) {
+                    this.position = this.position.add(this.direction.toUnitVector().opposite());
                 }
             }
             case IGNORE -> {

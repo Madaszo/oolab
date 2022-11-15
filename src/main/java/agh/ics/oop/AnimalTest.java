@@ -6,9 +6,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AnimalTest {
-    Animal malpa = new Animal();
+    IWorldMap map = new RectangularMap(4, 4);
+    Animal malpa = new Animal(map,new Vector2d(2,2));
     @BeforeEach
     void setUp(){
+        map.place(malpa);
     }
 
     @Test

@@ -2,7 +2,7 @@ package agh.ics.oop;
 
 import java.util.Objects;
 
-public class Animal {
+public class Animal implements IMapElement{
     private final IWorldMap map;
     private MapDirection direction = MapDirection.NORTH;
     private Vector2d position;
@@ -49,13 +49,21 @@ public class Animal {
             case FORWARD -> {
                 Vector2d tmp = this.direction.toUnitVector().add(this.position);
                 if(this.map.canMoveTo(tmp)){
-                    this.position = this.position.add(this.direction.toUnitVector());
+                    boolean b = this.map.eat(tmp);
+                    this.position = tmp;
+                    if(b){
+                        this.map.grassify();
+                    }
                 }
             }
             case BACKWARD -> {
                 Vector2d tmp = this.direction.toUnitVector().opposite().add(this.position);
                 if(this.map.canMoveTo(tmp)) {
-                    this.position = this.position.add(this.direction.toUnitVector().opposite());
+                    boolean b = this.map.eat(tmp);
+                    this.position = tmp;
+                    if(b){
+                        this.map.grassify();
+                    }
                 }
             }
             case IGNORE -> {

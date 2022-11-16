@@ -18,13 +18,13 @@ public interface IWorldMap {
     boolean canMoveTo(Vector2d position);
 
     /**
-     * Place a animal on the map.
+     * Place an object on the map.
      *
-     * @param animal
+     * @param object
      *            The animal to place on the map.
      * @return True if the animal was placed. The animal cannot be placed if the map is already occupied.
      */
-    boolean place(Animal animal);
+    boolean place(IMapElement object);
 
     /**
      * Return true if given position on the map is occupied. Should not be
@@ -45,5 +45,7 @@ public interface IWorldMap {
      * @return Object or null if the position is not occupied.
      */
     Object objectAt(Vector2d position);
+    boolean eat(Vector2d position);
+    void grassify();
 
 }

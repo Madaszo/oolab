@@ -19,7 +19,7 @@ public class GrassField extends AbstractWorldMap{
     public boolean eat(Vector2d position){
         Object object = this.objectAt(position);
         if (object != null){
-            objects.remove(object);
+            objects.remove(position);
             return true;
         }
         return false;

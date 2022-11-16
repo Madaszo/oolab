@@ -1,13 +1,15 @@
 package agh.ics.oop;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 abstract class AbstractWorldMap implements IWorldMap {
-    protected List<IMapElement> objects = new ArrayList<>();
+    protected Map<Vector2d,IMapElement> objects = new HashMap<>();
     public boolean place(IMapElement object) {
         if(canMoveTo(object.getPosition())) {
-            objects.add(object);
+            objects.put(object.getPosition(),object);
             return true;
         }
         else return false;
@@ -20,26 +22,18 @@ abstract class AbstractWorldMap implements IWorldMap {
     }
 
     public Object objectAt(Vector2d position) {
-        Object w = null;
-        for (IMapElement object:objects){
-            if(object.getPosition().equals(position)&&!object.toString().equals("*")){
-                return object;
-            }
-            if(object.getPosition().equals(position)){
-                w = object;
-            }
-        }
-        return w;
+        return  objects.get(position);
     }
     public String toString(){
         MapVisualizer visualizer = new MapVisualizer(this);
-        Vector2d ll = objects.get(0).getPosition();
-        Vector2d ur = objects.get(0).getPosition();
+        Vector2d ll = new Vector2d(Integer.MAX_VALUE,Integer.MAX_VALUE);
+        Vector2d ur = new Vector2d(Integer.MIN_VALUE,Integer.MIN_VALUE);
+        for(Map.Entry<Vector2d, IMapElement> entry : objects.entrySet()) {
+            Vector2d key = entry.getKey();
+            IMapElement value = entry.getValue();
+            ll=ll.lowerLeft(value.getPosition());
+            ur=ur.upperRight(value.getPosition());
 
-        for(IMapElement object:objects){
-            ll = ll.lowerLeft(object.getPosition());
-            ur = ur.upperRight(object.getPosition());
-        }
         return visualizer.draw(ll,ur);
     }
 }

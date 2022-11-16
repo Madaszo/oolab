@@ -4,34 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 abstract class AbstractWorldMap implements IWorldMap {
-    protected List<Animal> animals = new ArrayList<>();
-    protected List<Grass> grasses = new ArrayList<>();
-    public boolean place(Animal animal) {
-        if(canMoveTo(animal.getPosition())) {
-            animals.add(animal);
+    protected List<IMapElement> objects = new ArrayList<>();
+    public boolean place(IMapElement object) {
+        if(canMoveTo(object.getPosition())) {
+            objects.add(object);
             return true;
         }
         else return false;
     }
+
+    public boolean eat(Vector2d position) {
+        return false;
+    }
+    public void grassify(){
+    }
+
+    public Object objectAt(Vector2d position) {
+        Object w = null;
+        for (IMapElement object:objects){
+            if(object.getPosition().equals(position)&&!object.toString().equals("*")){
+                return object;
+            }
+            if(object.getPosition().equals(position)){
+                w = object;
+            }
+        }
+        return w;
+    }
     public String toString(){
         MapVisualizer visualizer = new MapVisualizer(this);
-        Vector2d ll;
-        Vector2d ur;
-        if(animals.isEmpty()){
-            ll = grasses.get(0).getPosition();
-            ur = grasses.get(0).getPosition();
-        }
-        else{
-            ll = animals.get(0).getPosition();
-            ur = animals.get(0).getPosition();
-        }
-        for(Animal animal:animals){
-            ll = ll.lowerLeft(animal.getPosition());
-            ur = ur.upperRight(animal.getPosition());
-        }
-        for (Grass grass:grasses){
-            ll = ll.lowerLeft(grass.getPosition());
-            ur = ur.upperRight(grass.getPosition());
+        Vector2d ll = objects.get(0).getPosition();
+        Vector2d ur = objects.get(0).getPosition();
+
+        for(IMapElement object:objects){
+            ll = ll.lowerLeft(object.getPosition());
+            ur = ur.upperRight(object.getPosition());
         }
         return visualizer.draw(ll,ur);
     }

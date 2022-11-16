@@ -12,8 +12,8 @@ public class RectangularMap extends AbstractWorldMap{
     public boolean canMoveTo(Vector2d position) {
         if (Objects.equals(map[1], map[1].upperRight(position))
                 && Objects.equals(map[0], map[0].lowerLeft(position))){
-            for (Animal animal: animals){
-                if(animal.isAt(position)){
+            for (IMapElement object: objects){
+                if(object.getPosition().equals(position)){
                     return false;
                 }
             }
@@ -26,16 +26,4 @@ public class RectangularMap extends AbstractWorldMap{
         return !canMoveTo(position);
     }
 
-    public Object objectAt(Vector2d position) {
-        for (Animal animal: animals){
-            if(animal.isAt(position)){
-                return animal;
-            }
-        }
-        return null;
-    }
-    public String toString(){
-        MapVisualizer visualizer = new MapVisualizer(this);
-        return visualizer.draw(this.map[0],this.map[1]);
-    }
 }

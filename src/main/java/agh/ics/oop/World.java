@@ -8,9 +8,10 @@ public class World {
 //        IEngine engine = new SimulationEngine(directions, map, positions);
 //        engine.run();
 
-        IWorldMap map1 = new GrassField(10);
+        GrassField map1 = new GrassField(10);
+
         System.out.println(map1);
-        IEngine engine1 = new SimulationEngine(directions, map1, positions);
+        IEngine engine1 = new SimulationEngine(directions, map1, positions, map1);
         engine1.run();
 
 

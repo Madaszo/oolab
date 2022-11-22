@@ -17,16 +17,18 @@ public class RunEngineTest {
     @Test
     void testOutOfBounds(){
         MoveDirection[] directions = OptionsParser.parse(new String[]{"f","b","f","b","f"});
-        SimulationEngine engine = new SimulationEngine(directions,map,positions);
+        SimulationEngine engine = new SimulationEngine(directions,map,positions,map);
         engine.run();
+        System.out.println(map.objects);
         assertTrue(map.isOccupied(new Vector2d(2,4)));
         assertTrue(map.isOccupied(new Vector2d(1,0)));
     }
     @Test
     void testOnTop(){
         MoveDirection[] directions = OptionsParser.parse(new String[]{"b","r","l","f","f","f","f"});
-        SimulationEngine engine = new SimulationEngine(directions,map,positions);
+        SimulationEngine engine = new SimulationEngine(directions,map,positions,map);
         engine.run();
+        System.out.println(map.objects);
         assertTrue(map.isOccupied(new Vector2d(1,1)));
         assertTrue(map.isOccupied(new Vector2d(2,1)));
     }

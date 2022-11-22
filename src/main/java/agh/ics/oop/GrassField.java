@@ -1,9 +1,11 @@
 package agh.ics.oop;
 
+import java.util.Map;
+import java.util.Objects;
 import java.util.Random;
 import java.lang.Math;
 
-public class GrassField extends AbstractWorldMap{
+public class GrassField extends AbstractWorldMap implements IPositionChangeObserver{
 
     private final int grasses;
     public GrassField(int grasses){
@@ -14,8 +16,8 @@ public class GrassField extends AbstractWorldMap{
                     rand.nextInt((int) Math.sqrt(10*grasses)))))){
             }
         }
-
     }
+
     public boolean eat(Vector2d position){
         Object object = this.objectAt(position);
         if (object != null){
@@ -32,25 +34,30 @@ public class GrassField extends AbstractWorldMap{
         }
     }
 
-
+    @Override
+    public Vector2d ll() {
+        Vector2d ll = new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE);
+        for (Map.Entry<Vector2d, IMapElement> entry : objects.entrySet()) {
+            IMapElement value = entry.getValue();
+            ll = ll.lowerLeft(value.getPosition());
+        }
+        return ll;
+    }
+    @Override
+    public Vector2d ur() {
+        Vector2d ur = new Vector2d(Integer.MIN_VALUE, Integer.MIN_VALUE);
+        for (Map.Entry<Vector2d, IMapElement> entry : objects.entrySet()) {
+            IMapElement value = entry.getValue();
+            ur = ur.upperRight(value.getPosition());
+        }
+        return ur;
+    }
     public boolean canMoveTo(Vector2d position) {
-        for (IMapElement object: objects){
-            if(object.getPosition().equals(position)&&!object.toString().equals("*")){
-                return false;
-            }
-        }
-        return true;
+        return (objects.get(position) == null) || (Objects.equals(objects.get(position).toString(), "*"));
     }
 
 
-    public boolean isOccupied(Vector2d position) {
-        for (IMapElement object: objects){
-            if(object.getPosition().equals(position)){
-                return true;
-            }
-        }
-        return false;
-    }
+
 
 
 

@@ -1,17 +1,26 @@
 package agh.ics.oop;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
-abstract class AbstractWorldMap implements IWorldMap {
-    protected List<IMapElement> objects = new ArrayList<>();
+abstract class AbstractWorldMap implements IWorldMap{
+    protected Map<Vector2d,IMapElement> objects = new HashMap<>();
     public boolean place(IMapElement object) {
         if(canMoveTo(object.getPosition())) {
-            objects.add(object);
+            objects.put(object.getPosition(),object);
             return true;
         }
         else return false;
     }
+    public boolean isOccupied(Vector2d position) {
+        return objects.get(position) != null;
+    }
+    public void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
+        IMapElement object = objects.get(oldPosition);
+        objects.remove(oldPosition);
+        objects.put(newPosition,object);
+    }
+
 
     public boolean eat(Vector2d position) {
         return false;
@@ -20,26 +29,16 @@ abstract class AbstractWorldMap implements IWorldMap {
     }
 
     public Object objectAt(Vector2d position) {
-        Object w = null;
-        for (IMapElement object:objects){
-            if(object.getPosition().equals(position)&&!object.toString().equals("*")){
-                return object;
-            }
-            if(object.getPosition().equals(position)){
-                w = object;
-            }
-        }
-        return w;
+        return  objects.get(position);
     }
+    public abstract Vector2d ll();
+    public abstract Vector2d ur();
+
+
     public String toString(){
         MapVisualizer visualizer = new MapVisualizer(this);
-        Vector2d ll = objects.get(0).getPosition();
-        Vector2d ur = objects.get(0).getPosition();
-
-        for(IMapElement object:objects){
-            ll = ll.lowerLeft(object.getPosition());
-            ur = ur.upperRight(object.getPosition());
-        }
+        Vector2d ll = ll();
+        Vector2d ur = ur();
         return visualizer.draw(ll,ur);
     }
 }

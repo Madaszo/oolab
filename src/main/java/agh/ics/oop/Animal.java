@@ -1,11 +1,12 @@
 package agh.ics.oop;
 
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class Animal implements IMapElement{
     private final IWorldMap map;
     private MapDirection direction = MapDirection.NORTH;
     private Vector2d position;
+    ArrayList<IPositionChangeObserver> observers = new ArrayList<>();
     public Animal(IWorldMap map, Vector2d initialPosition){
         this.map = map;
         this.position = initialPosition;
@@ -40,7 +41,7 @@ public class Animal implements IMapElement{
         return this.direction;
     }
     public boolean isAt(Vector2d position){
-        return Objects.equals(this.position, position);
+        return this.position.equals(position);
     }
     public void move(MoveDirection direction){
         switch (direction) {
@@ -50,6 +51,7 @@ public class Animal implements IMapElement{
                 Vector2d tmp = this.direction.toUnitVector().add(this.position);
                 if(this.map.canMoveTo(tmp)){
                     boolean b = this.map.eat(tmp);
+                    positionChanged(this.position,tmp);
                     this.position = tmp;
                     if(b){
                         this.map.grassify();
@@ -60,6 +62,7 @@ public class Animal implements IMapElement{
                 Vector2d tmp = this.direction.toUnitVector().opposite().add(this.position);
                 if(this.map.canMoveTo(tmp)) {
                     boolean b = this.map.eat(tmp);
+                    positionChanged(this.position,tmp);
                     this.position = tmp;
                     if(b){
                         this.map.grassify();
@@ -69,6 +72,17 @@ public class Animal implements IMapElement{
             case IGNORE -> {
             }
         }
+    }
+    void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+        for(IPositionChangeObserver observer : observers){
+            observer.positionChanged(oldPosition,newPosition);
+        }
+    }
+    void addObserver(IPositionChangeObserver observer){
+        observers.add(observer);
+    }
+    void removeObserver(IPositionChangeObserver observer){
+        observers.remove(observer);
     }
     public void massMove(MoveDirection[] moveDirections){
         for(MoveDirection moveDirection: moveDirections){

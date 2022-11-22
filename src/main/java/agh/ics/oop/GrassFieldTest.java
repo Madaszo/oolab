@@ -17,10 +17,13 @@ public class GrassFieldTest {
     @Test
     void testOnTop(){
         MoveDirection[] directions = OptionsParser.parse(new String[]{"b","r","l","f","f","f","f"});
-        SimulationEngine engine = new SimulationEngine(directions,map,positions);
+        System.out.println(map);
+        SimulationEngine engine = new SimulationEngine(directions,map,positions,map);
         engine.run();
+        System.out.println(map);
         assertTrue(map.isOccupied(new Vector2d(1,1)));
         assertTrue(map.isOccupied(new Vector2d(2,1)));
+
     }
 
 }

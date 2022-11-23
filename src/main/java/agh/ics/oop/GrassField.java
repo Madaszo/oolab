@@ -14,6 +14,7 @@ public class GrassField extends AbstractWorldMap implements IPositionChangeObser
         for (int i = 0; i < grasses; i++) {
             while (!place(new Grass(new Vector2d(rand.nextInt((int) Math.sqrt(10*grasses)),
                     rand.nextInt((int) Math.sqrt(10*grasses)))))){
+                System.out.println("lol");
             }
         }
     }

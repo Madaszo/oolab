@@ -9,7 +9,7 @@ public class OptionsParser {
                 case "b", "backward" -> MoveDirection.BACKWARD;
                 case "r", "right" -> MoveDirection.RIGHT;
                 case "l", "left" -> MoveDirection.LEFT;
-                default -> MoveDirection.IGNORE;
+                default -> throw new IllegalArgumentException(s[i] + " is not legal move specification");
             };
         }
         return w;

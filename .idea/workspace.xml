@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bd5d4fe-a637-43d4-b9e3-8461f6a7996d" name="Changes" comment="Lab6">
-      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/IPositionChangeObserver.java" afterDir="false" />
+    <list default="true" id="1bd5d4fe-a637-43d4-b9e3-8461f6a7996d" name="Changes" comment="Lab7">
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/MapBoundary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/gui/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/AbstractWorldMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/AbstractWorldMap.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/Animal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassField.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassFieldTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/GrassFieldTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/RectangularMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/RectangularMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/RunEngineTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/RunEngineTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/OptionsParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/OptionsParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/SimulationEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/agh/ics/oop/World.java" afterDir="false" />
     </list>
@@ -30,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -84,6 +85,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GrassFieldTest.testOnTop" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="org.example.oolab.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="agh.ics.oop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="agh.ics.oop" />
+      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.GrassFieldTest" />
+      <option name="METHOD_NAME" value="testOnTop" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GrassFieldTest.testPlace" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="org.example.oolab.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="agh.ics.oop.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="agh.ics.oop" />
+      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.GrassFieldTest" />
+      <option name="METHOD_NAME" value="testPlace" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RunEngineTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="org.example.oolab.main" />
       <extension name="coverage">
@@ -99,44 +132,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RunEngineTest.testOutOfBounds" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="org.example.oolab.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="agh.ics.oop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="agh.ics.oop" />
-      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.RunEngineTest" />
-      <option name="METHOD_NAME" value="testOutOfBounds" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Vector2dTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="org.example.oolab.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="agh.ics.oop.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="agh.ics.oop" />
-      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.Vector2dTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.World" />
-        <item itemvalue="JUnit.RunEngineTest.testOutOfBounds" />
         <item itemvalue="JUnit.GrassFieldTest" />
         <item itemvalue="JUnit.RunEngineTest (1)" />
-        <item itemvalue="JUnit.Vector2dTest" />
+        <item itemvalue="Application.World" />
+        <item itemvalue="JUnit.GrassFieldTest.testPlace" />
+        <item itemvalue="JUnit.GrassFieldTest.testOnTop" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668602270450</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Lab6">
+      <created>1669207396178</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669207396178</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,17 +217,7 @@
     <MESSAGE value="Lab5_9" />
     <MESSAGE value="Lab5" />
     <MESSAGE value="Lab6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lab6" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/agh/ics/oop/RunEngineTest.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Lab7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lab7" />
   </component>
 </project>

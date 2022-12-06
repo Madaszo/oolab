@@ -10,7 +10,11 @@ public class Animal implements IMapElement{
     public Animal(IWorldMap map, Vector2d initialPosition){
         this.map = map;
         this.position = initialPosition;
+        boolean b = this.map.eat(position);
         this.map.place(this);
+        if(b){
+            this.map.grassify();
+        }
     }
     public Animal(IWorldMap map){
         this(map,new Vector2d(2,2));

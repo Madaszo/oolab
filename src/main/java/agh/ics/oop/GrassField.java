@@ -1,7 +1,5 @@
 package agh.ics.oop;
 
-import java.util.Map;
-import java.util.Objects;
 import java.util.Random;
 import java.lang.Math;
 
@@ -12,49 +10,49 @@ public class GrassField extends AbstractWorldMap implements IPositionChangeObser
         Random rand = new Random();
         this.grasses = grasses;
         for (int i = 0; i < grasses; i++) {
-            while (!place(new Grass(new Vector2d(rand.nextInt((int) Math.sqrt(10*grasses)),
-                    rand.nextInt((int) Math.sqrt(10*grasses)))))){
-            }
+            boolean b;
+            Grass g;
+            do {
+                g = new Grass(new Vector2d(rand.nextInt((int) Math.sqrt(10*grasses)),
+                        rand.nextInt((int) Math.sqrt(10*grasses))));
+                b = canMoveTo(g.getPosition());
+            }while (!b);
+            place(g);
         }
     }
 
     public boolean eat(Vector2d position){
         Object object = this.objectAt(position);
-        if (object != null){
+        if (object != null && object.getClass()==Grass.class){
             objects.remove(position);
             return true;
         }
-        return false;
+        else if(object == null){
+            return true;
+        } else throw new IllegalArgumentException(position + " is already taken");
     }
 
     public void grassify() {
         Random rand = new Random();
-        while(!super.place(new Grass(new Vector2d(rand.nextInt((int) Math.sqrt(10*grasses)),
-                rand.nextInt((int) Math.sqrt(10*grasses)))))){
-        }
+        boolean b;
+        Grass g;
+        do {
+            g = new Grass(new Vector2d(rand.nextInt((int) Math.sqrt(10*grasses)),
+                    rand.nextInt((int) Math.sqrt(10*grasses))));
+            b = canMoveTo(g.getPosition());
+        }while (!b);
+        place(g);
     }
 
     @Override
     public Vector2d ll() {
-        Vector2d ll = new Vector2d(Integer.MAX_VALUE, Integer.MAX_VALUE);
-        for (Map.Entry<Vector2d, IMapElement> entry : objects.entrySet()) {
-            IMapElement value = entry.getValue();
-            ll = ll.lowerLeft(value.getPosition());
-        }
-        return ll;
+        return boundary.ll();
     }
     @Override
     public Vector2d ur() {
-        Vector2d ur = new Vector2d(Integer.MIN_VALUE, Integer.MIN_VALUE);
-        for (Map.Entry<Vector2d, IMapElement> entry : objects.entrySet()) {
-            IMapElement value = entry.getValue();
-            ur = ur.upperRight(value.getPosition());
-        }
-        return ur;
+        return boundary.ur();
     }
-    public boolean canMoveTo(Vector2d position) {
-        return (objects.get(position) == null) || (Objects.equals(objects.get(position).toString(), "*"));
-    }
+
 
 
 

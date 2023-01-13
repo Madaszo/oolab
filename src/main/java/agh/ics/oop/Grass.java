@@ -6,11 +6,21 @@ public class Grass implements IMapElement {
         this.position = position;
     }
 
+    @Override
+    public String getPath() {
+        return "src/main/resources/grass.png";
+    }
+
+    @Override
+    public String getLabel() {
+        return "Grass";
+    }
+
     public Vector2d getPosition() {
         return this.position;
     }
 
     public String toString() {
-        return "*";
+        return "**";
     }
 }

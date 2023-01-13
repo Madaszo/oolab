@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+
 public class AnimalTest {
     IWorldMap map = new RectangularMap(4, 4);
     Animal malpa = new Animal(map);
@@ -14,7 +16,7 @@ public class AnimalTest {
     }
 
     @Test
-    void test(){
+    void test() throws FileNotFoundException {
         String[] s = new String[]{"forward","f", "f", "f", "f", "r","z", "f","f","f", "f", "f"};
         MoveDirection[] moveDirections;
         moveDirections = new MoveDirection[]{MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.FORWARD,

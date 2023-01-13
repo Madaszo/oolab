@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-abstract class AbstractWorldMap implements IWorldMap{
+public abstract class AbstractWorldMap implements IWorldMap{
     public Map<Vector2d,IMapElement> objects = new HashMap<>();
     public MapBoundary boundary = new MapBoundary();
     public boolean place(IMapElement object) {
